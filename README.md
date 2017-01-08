@@ -5,6 +5,8 @@ A tool used to check if a CNAME resolves to the scope adress. If the CNAME resol
 - argparse
 - subbrute
 - dnspython
+
+
 # Usage?
 
 python main.py --target-file $FILE_WITH_TARGETS
