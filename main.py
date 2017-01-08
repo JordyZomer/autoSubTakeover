@@ -35,14 +35,12 @@ args = parser.parse_args()
 target_file = args.target_file
 
 # Open the target file (Read-Only) as targets  and read em :D 
-with open(target_file, 'r') as targets:
-  target_list = targets.read()
-  
+domains = open(target_file).read().split('\n')
 # Initialize Resolver and use Google DNS servers
 dnsResolver = dns.resolver.Resolver()
 dnsResolver.nameservers = ['8.8.8.8', '8.8.4.4']
 # For every domain in target_file do
-for domain in target_list:
+for domain in domains:
   domain = "{:s}".format(domain)
 # For every entry in Subbrute's output check if it's a CNAME and if it resolves to scope
   for entry in subbrute.run(domain):
