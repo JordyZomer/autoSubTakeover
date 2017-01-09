@@ -25,22 +25,20 @@ import dns.resolver
 
 # External imports 
 from subbrute import subbrute
-from whois import whois
+import whois
 from datetime import datetime
 
 # Function to grab expiry date from the domain
 # and return whether it is expired or not
 def w(domain):
-	try:
-		info = whois(domain)
-		now = datetime.now()
-		if info.expiration_date[0] < now:
-			return "\033[91mYES (%s)\033[0m" % info.expiration_date[0]
-		else:
-			return "\033[93mNO (%s)\033[0m" % info.expiration_date[0]	
-	except:
-		return "\033[93mNo whois data\033[0m"
-
+	stripdomain = domain.rstrip('.')
+  	fixdomain = "{:s}".format(stripdomain)
+	now = datetime.now()
+	info = whois.whois('{:s}'.format(fixdomain))
+	if info.expiration_date[0] < now:
+		return "\033[91mYES (%s)\033[0m" % info.expiration_date[0]
+	else:
+		return "\033[93mNO (%s)\033[0m" % info.expiration_date[0] 
 		
 
 # Load argument parsing
@@ -64,6 +62,7 @@ output_file_handle = open(output_file, 'w', 0)
 # For every domain in target_file do
 for domain in domains:
   domain = "{:s}".format(domain)
+  expired = w(domain)
 # For every entry in Subbrute's output check if it's a CNAME and if it resolves to scope
   for entry in subbrute.run(domain):
     	try:
@@ -72,7 +71,6 @@ for domain in domains:
 	# Query whois
  	     for rdata in answers:
              	output = '{:s}'.format(rdata.target)
-		expired = w(output)
    	      	  # If scope is/not in output splash some crap out
                 if domain in output:
                     output_text = "[%s] - Expired: [%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (entry[0], expired, output)
