@@ -9,4 +9,4 @@ A tool used to check if a CNAME resolves to the scope adress. If the CNAME resol
 
 # Usage?
 
-python main.py --target-file $FILE_WITH_TARGETS --output-file output.txt
+python main.py --target-file $FILE_WITH_TARGETS --output-file $OUTPUT_FILE
