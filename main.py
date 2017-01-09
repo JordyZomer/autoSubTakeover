@@ -85,5 +85,7 @@ for domain in domains:
 	# To solve those "BLAH SUBDOMAIN IS NO CNAME" errors
 	except dns.resolver.NoAnswer:
    	     pass
+	except dns.resolver.NXDOMAIN:
+	     pass
 
 output_file_handle.close()
