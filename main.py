@@ -36,9 +36,9 @@ def w(domain):
 	now = datetime.now()
 	info = whois.whois('{:s}'.format(fixdomain))
 	if info.expiration_date[0] < now:
-		return "\033[91mYES (%s)\033[0m" % info.expiration_date[0]
+		return "\033[91mVULN (%s)\033[0m" % info.expiration_date[0]
 	else:
-		return "\033[93mNO (%s)\033[0m" % info.expiration_date[0] 
+		return "\033[93mNOTVULN (%s)\033[0m" % info.expiration_date[0] 
 		
 
 # Load argument parsing
