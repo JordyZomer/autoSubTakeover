@@ -25,6 +25,23 @@ import dns.resolver
 
 # External imports 
 from subbrute import subbrute
+from whois import whois
+from datetime import datetime
+
+# Function to grab expiry date from the domain
+# and return whether it is expired or not
+def w(domain):
+	try:
+		info = whois(domain)
+		now = datetime.now()
+		if info.expiration_date[0] < now:
+			return "\033[91mYES (%s)\033[0m" % info.expiration_date[0]
+		else:
+			return "\033[93mNO (%s)\033[0m" % info.expiration_date[0]	
+	except:
+		return "\033[93mNo whois data\033[0m"
+
+		
 
 # Load argument parsing
 parser = argparse.ArgumentParser(description='Welcome to AutoSubTakeover by  Oblivion, Mantis, Zoidberg')
@@ -52,15 +69,17 @@ for domain in domains:
     	try:
         # Query the DNS resolver to check if subdomain is a CNAME
    	     answers = dnsResolver.query(entry[0], 'CNAME')
+	# Query whois
  	     for rdata in answers:
              	output = '{:s}'.format(rdata.target)
+		expired = w(output)
    	      	  # If scope is/not in output splash some crap out
                 if domain in output:
-                    output_text = "[%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (entry[0], output)
+                    output_text = "[%s] - Expired: [%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (entry[0], expired, output)
                     output_file_handle.write(output_text + "\n")
                     print output_text
                 else:
-                    output_text = "[%s] - CNAME %s \033[91mdoes not\033[0m resolve to scope" % (entry[0], output)
+                    output_text = "[%s] - Expired: [%s] - CNAME %s \033[91mdoes not\033[0m resolve to scope" % (entry[0], expired, output)
                     output_file_handle.write(output_text + "\n")
                     print output_text
 	# To solve those "BLAH SUBDOMAIN IS NO CNAME" errors
