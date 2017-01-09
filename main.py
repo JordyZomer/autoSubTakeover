@@ -50,11 +50,11 @@ for domain in domains:
  	     for rdata in answers:
              	output = '{:s}'.format(rdata.target)
    	      	  # If scope is/not in output splash some crap out
-              	if domain in output:
-   	          	  print "CNAME: %s resolves to scope" % (output)
-   	        else:
-    			  print "CNAME %s does not resolve to scope" % (output)
-   	 	# To solve those "BLAH SUBDOMAIN IS NO CNAME" errors
+                if domain in output:
+                          print "[%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (domain, output)
+                else:
+                          print "[%s] - CNAME %s \033[91mdoes not\033[0m resolve to scope" % (domain, output)
+	# To solve those "BLAH SUBDOMAIN IS NO CNAME" errors
 	except dns.resolver.NoAnswer:
    	     pass
 
