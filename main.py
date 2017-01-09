@@ -29,16 +29,21 @@ from subbrute import subbrute
 # Load argument parsing
 parser = argparse.ArgumentParser(description='Welcome to AutoSubTakeover by  Oblivion, Mantis, Zoidberg')
 parser.add_argument('--target-file', type=str, help='The file that contains the hosts')
+parser.add_argument('--output-file', type=str, help='The file that will contain the output')
 args = parser.parse_args()
 
 # The file with the targets we want is behind the parameter --target-file
 target_file = args.target_file
+output_file = args.output_file
 
 # Open the target file (Read-Only) as targets  and read em :D 
 domains = open(target_file).read().split('\n')
 # Initialize Resolver and use Google DNS servers
 dnsResolver = dns.resolver.Resolver()
 dnsResolver.nameservers = ['8.8.8.8', '8.8.4.4']
+
+output_file_handle = open(output_file, 'w', 0)
+
 # For every domain in target_file do
 for domain in domains:
   domain = "{:s}".format(domain)
@@ -51,10 +56,15 @@ for domain in domains:
              	output = '{:s}'.format(rdata.target)
    	      	  # If scope is/not in output splash some crap out
                 if domain in output:
-                          print "[%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (entry[0], output)
+                    output_text = "[%s] - CNAME: %s \033[93mresolves\033[0m to scope" % (entry[0], output)
+                    output_file_handle.write(output_text + "\n")
+                    print output_text
                 else:
-                          print "[%s] - CNAME %s \033[91mdoes not\033[0m resolve to scope" % (entry[0], output)
+                    output_text = "[%s] - CNAME %s \033[91mdoes not\033[0m resolve to scope" % (entry[0], output)
+                    output_file_handle.write(output_text + "\n")
+                    print output_text
 	# To solve those "BLAH SUBDOMAIN IS NO CNAME" errors
 	except dns.resolver.NoAnswer:
    	     pass
 
+output_file_handle.close()
