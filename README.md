@@ -1,5 +1,5 @@
 # autoSubTakeover
-A tool used to check if a CNAME resolves to the scope adress. If the CNAME resolves to a non-scope adress it might be worth checking out if subdomain takeover is possible. Also checks when a domain-name expires.
+A tool used to check if a CNAME resolves to the scope address. If the CNAME resolves to a non-scope address it might be worth checking out if subdomain takeover is possible. Also checks when a domain-name expires.
 
 # Requirements
 - argparse
