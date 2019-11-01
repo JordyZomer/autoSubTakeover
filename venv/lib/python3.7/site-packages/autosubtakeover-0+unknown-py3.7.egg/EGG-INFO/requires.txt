@@ -1,0 +1,6 @@
+click
+asyncio
+tornado
+aiodns
+pycares
+tldextract

@@ -1,3 +1,6 @@
-python_whois==0.6.5
-dnspython==1.15.0
-whois==0.7
+Click==7.0
+pycares==3.0.0
+tornado==6.0.3
+aiodns==2.0.0
+asyncio==3.4.3
+tldextract==2.2.2

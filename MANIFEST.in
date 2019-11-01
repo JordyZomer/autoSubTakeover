@@ -1,0 +1,2 @@
+include versioneer.py
+include autosubtakeover/_version.py

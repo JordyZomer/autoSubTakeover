@@ -1,0 +1,3 @@
+[console_scripts]
+autosubtakeover = autosubtakeover.command:main
+
