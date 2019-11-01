@@ -6,7 +6,7 @@ import versioneer
 setup(
     name="autosubtakeover",
     license='MIT',
-    version=versioneer.get_version(),  # type: ignore
+    version= '0.1',
     cmdclass=versioneer.get_cmdclass(),  # type: ignore
     description="autoSubTakeover",
     url="https://github.com/jordyzomer/autosubtakeover",
