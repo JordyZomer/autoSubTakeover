@@ -7,7 +7,6 @@ setup(
     name="autosubtakeover",
     license='MIT',
     version= '0.1',
-    cmdclass=versioneer.get_cmdclass(),  # type: ignore
     description="autoSubTakeover",
     url="https://github.com/jordyzomer/autosubtakeover",
     download_url = 'https://github.com/jordyzomer/autosubtakeover/archive/v_01.tar.gz',
