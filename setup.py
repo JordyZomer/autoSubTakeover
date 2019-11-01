@@ -14,6 +14,11 @@ setup(
     author="Jordy Zomer",
     author_email="jordy@simplyhacker.com",
     packages=find_packages(),
+    classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
+    ],
     install_requires=["click", "asyncio", "tornado", "aiodns", "pycares", "tldextract"],
     entry_points={"console_scripts": ["autosubtakeover=autosubtakeover.command:main"]},
 )

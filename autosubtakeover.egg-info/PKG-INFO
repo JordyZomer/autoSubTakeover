@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: autosubtakeover
-Version: 0+untagged.23.ge041cd9
+Version: 0+untagged.25.g7681288.dirty
 Summary: autoSubTakeover
 Home-page: https://github.com/jordyzomer/autosubtakeover
 Author: Jordy Zomer
@@ -9,3 +9,6 @@ License: MIT
 Download-URL: https://github.com/jordyzomer/autosubtakeover/archive/v_01.tar.gz
 Description: UNKNOWN
 Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
