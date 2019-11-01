@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+autosubtakeover/__init__.py
+autosubtakeover/__main__.py
+autosubtakeover/_version.py
+autosubtakeover/command.py
+autosubtakeover/error.py
+autosubtakeover/path.py
+autosubtakeover.egg-info/PKG-INFO
+autosubtakeover.egg-info/SOURCES.txt
+autosubtakeover.egg-info/dependency_links.txt
+autosubtakeover.egg-info/entry_points.txt
+autosubtakeover.egg-info/requires.txt
+autosubtakeover.egg-info/top_level.txt
