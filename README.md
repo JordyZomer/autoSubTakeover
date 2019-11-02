@@ -1,3 +1,6 @@
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/JordyZomer/autoSubTakeover.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/JordyZomer/autoSubTakeover/context:python)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/autosubtakeover)
+![PyPI - License](https://img.shields.io/pypi/l/autosubtakeover)
 # autoSubTakeover
 A tool used to check if a CNAME resolves to the scope address. If the CNAME resolves to a non-scope address it might be worth checking out if subdomain takeover is possible. Also checks if the domain that a subdomain points to is expired.
 
@@ -40,7 +43,7 @@ Usage: autosubtakeover [OPTIONS]
 Options:
   --domains TEXT      Domains to brute.
   --nameservers TEXT  Nameservers to use.
-  --wordlist TEXT     Wordlist of subdomains
+  --wordlist TEXT     Wordlist of subdomains.
   --help              Show this message and exit.
   
 ```
