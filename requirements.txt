@@ -1,5 +1,5 @@
 Click==7.0
-pycares==3.0.0
+pycares==4.2.0
 tornado==6.0.3
 aiodns==2.0.0
 asyncio==3.4.3
